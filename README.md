@@ -11,9 +11,76 @@ Untuk menggunakan UUD sebagai pengganti ID, maka yang harus dipersiapkan adalah 
 
 ## Simulasi
 1. Buat model dan migration Blog
+   ```sh
+   $ php artisan make:model Blog -m
+   ```
 
-``` php artisan make:model Blog -m ```
+2. Setting Database
+   ```sh
+   Schema::create('blogs', function (Blueprint $table) {
+            $table->uuid('id')->primary()->unique();
+            $table->string('title');
+            $table->timestamps();
+        });
+   ```
+   yang menjadi perhatian bagian uuid disetting sebagai primary dan unique.
 
-2. Setting Model
+3. Setting Model
+   ```sh
+   <?php
 
-Buat Traits
+    namespace App\Models;
+
+    use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+    class Blog extends Model
+    {
+        use HasFactory;
+
+        /**
+        * The attributes that are mass assignable.
+        *
+        * @var array
+        */
+        protected $fillable = ['title', 'id'];
+
+        protected $primaryKey = 'id';
+
+        public $incrementing = false;
+
+        protected $keyType = 'string';
+    }
+
+   ```
+   increment disetting false, karena tidak menggunakan ID lagi.
+
+3. Buat Traits
+   Saya membuat file trait HasUuid sebagai file yang berfungsi untuk men-generate UUID 
+   Saya membuat file HasUuid pada folder Model\Traits
+   berikut potongan kode nya:
+   ```sh
+   <?php
+
+    namespace App\Models\Traits;
+
+    use Illuminate\Support\Str;
+
+    trait HasUuid
+    {
+        /**
+        * Boot the Has Uuid trait for the model.
+        *
+        * @return void
+        */
+        public static function bootHasUuid()
+        {
+            static::creating(function ($model) {
+                if (empty($model->{$model->getKeyName()})) {
+                    $model->{$model->getKeyName()} = Str::uuid();
+                }
+            });
+        }
+    }
+
+   ```

@@ -55,10 +55,8 @@ Untuk menggunakan UUD sebagai pengganti ID, maka yang harus dipersiapkan adalah 
    ```
    increment disetting false, karena tidak menggunakan ID lagi.
 
-3. Buat Traits
-   Saya membuat file trait HasUuid sebagai file yang berfungsi untuk men-generate UUID 
-   Saya membuat file HasUuid pada folder Model\Traits
-   berikut potongan kode nya:
+4. Buat Traits
+   Saya membuat file trait HasUuid sebagai file yang berfungsi untuk men-generate UUID pada folder Model\Traits. Berikut potongan kode nya:
    ```sh
    <?php
 
@@ -84,3 +82,35 @@ Untuk menggunakan UUD sebagai pengganti ID, maka yang harus dipersiapkan adalah 
     }
 
    ```
+
+5. Menambahkan file Trait HasUuid ke dalam Model Blog
+   
+   yaitu memanggil HasUuid dengan ```use HasUuid``` dan menambahkan ```use App\Models\Traits\HasUuid;```.
+   ```sh
+   <?php
+
+    namespace App\Models\Test;
+
+    use App\Models\Traits\HasUuid;
+    use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+    class BlogTest extends Model
+    {
+        use HasFactory, HasUuid;
+
+        /**
+        * The attributes that are mass assignable.
+        *
+        * @var array
+        */
+        protected $fillable = ['title', 'id'];
+
+        protected $primaryKey = 'id';
+
+        public $incrementing = false;
+
+        protected $keyType = 'string';
+    }
+
+```

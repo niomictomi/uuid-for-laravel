@@ -11,7 +11,7 @@ Untuk menggunakan UUD sebagai pengganti ID, maka yang harus dipersiapkan adalah 
 
 ## Simulasi
 1. Buat model dan migration Blog
-``` php artisan make:model Blog -m ```
+```sh php artisan make:model Blog -m ```
 
 2. Setting Model
 

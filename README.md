@@ -1,6 +1,9 @@
+<p align="center">
+<a href="https://github.com/niomictomi/uuid-for-laravel" target="_blank">
+<img src="https://github.com/niomictomi/uuid-for-laravel/blob/main/file/tomslock.png" width="400"></a></p>
+
 # uuid-for-laravel
 Menggunakan UUID sebagai pengganti ID Laravel
-<img  src="https://github.com/niomictomi/uuid-for-laravel/blob/main/file/tomslock.png" width="400>
 
 ## Persiapan
 Untuk menggunakan UUD sebagai pengganti ID, maka yang harus dipersiapkan adalah hal-hal sebagai berikut: 

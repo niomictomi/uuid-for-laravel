@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\Test;
+namespace App\Models;
 
 use App\Models\Traits\HasUuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class BlogTest extends Model
+class Blog extends Model
 {
     use HasFactory, HasUuid;
 

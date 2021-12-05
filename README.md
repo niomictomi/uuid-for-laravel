@@ -138,3 +138,4 @@ dan hasilnya sebagai berikut:
      created_at: "2021-12-05 08:39:21",
    }
 ```
+<img  src="https://github.com/niomictomi/uuid-for-laravel/blob/main/file/ssdb.png">

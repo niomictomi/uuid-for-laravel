@@ -113,7 +113,7 @@ Untuk menggunakan UUD sebagai pengganti ID, maka yang harus dipersiapkan adalah 
         protected $keyType = 'string';
     }
 
-```
+    ```
 
 ## Simulasi
 

@@ -152,3 +152,6 @@ dan hasilnya sebagai berikut:
    }
 ```
 <img  src="https://github.com/niomictomi/uuid-for-laravel/blob/main/file/ssdb.png">
+
+## Penutup
+Untuk selanjutnya bisa dikembangkan sesuai kebutuhan codingan anda.

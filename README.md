@@ -9,7 +9,7 @@ Untuk menggunakan UUD sebagai pengganti ID, maka yang harus dipersiapkan adalah 
 3. Traits (fungsinya sama kayak Helper, fungsi ini dapat dipakai difungsi-fungsi lainnya)
 
 
-## Simulasi
+## Setting
 1. Buat model dan migration Blog
    ```sh
    $ php artisan make:model Blog -m
@@ -113,4 +113,28 @@ Untuk menggunakan UUD sebagai pengganti ID, maka yang harus dipersiapkan adalah 
         protected $keyType = 'string';
     }
 
+```
+
+## Simulasi
+
+Dengan menggunakan laravel tinker ```php artisan tinker```, kita menambahkan title dengan value "test 2".
+
+```sh
+$ php artisan tinker
+Psy Shell v0.10.9 (PHP 7.3.31 — cli) by Justin Hileman
+>>> BlogTest::create(['title' => 'test 2']);
+```
+
+dan hasilnya sebagai berikut:
+
+```sh
+[!] Aliasing 'BlogTest' to 'App\Models\Blog' for this Tinker session.
+=> App\Models\Blog {#4617
+     title: "test 2",
+     id: Ramsey\Uuid\Lazy\LazyUuidFromString {#4622
+       uuid: "98ecfa52-8953-4476-b835-cc073e53db42",
+     },
+     updated_at: "2021-12-05 08:39:21",
+     created_at: "2021-12-05 08:39:21",
+   }
 ```
